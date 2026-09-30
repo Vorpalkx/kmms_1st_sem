@@ -1,6 +1,7 @@
 #include <iostream>
 
 void gnome_sort(int *arr, const int size);
+void print_array(const char* const comment, int *arr, const int size);
 
 int main() {
     int size;
@@ -21,23 +22,11 @@ int main() {
         std::cin >> arr[i];
     }
 
-    std::cout << "Исходный массив: ";
-
-    for (int i = 0; i < size; i++) {
-        std::cout << arr[i] << " ";
-    }
-
-    std::cout << std::endl;
+    print_array("Исходный массив: ", arr, size);
 
     gnome_sort(arr, size);
 
-    std::cout << "Отсортированный массив: ";
-
-    for (int i = 0; i < size; i++) {
-        std::cout << arr[i] << " ";
-    }
-
-    std::cout << std::endl;
+    print_array("Отсортированный массив: ", arr, size);
 
     delete[] arr;
 
@@ -58,4 +47,14 @@ void gnome_sort(int *arr, const int size) {
         index--;
       }
     }
+}
+
+void print_array(const char* const comment, int *arr, const int size) {
+    std::cout << comment;
+
+    for (int i = 0; i < size; i++) {
+        std::cout << arr[i] << " ";
+    }
+
+    std::cout << std::endl;   
 }
