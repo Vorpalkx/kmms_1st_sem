@@ -140,19 +140,26 @@ void biv::odd_even_sort(int* arr, const int size) {
 }
 
 void biv::comb_sort(int* arr, const int size) {
+  if (size < 2) return;
+
   double factor = 1.25;
   int step = size - 1;
+
   bool is_swapped = true;
+
   while (step > 1 || is_swapped) {
+    step /= factor;
     is_swapped = false;
     for (int i = 0; i + step < size; i++) {
       if (arr[i] > arr[i + step]) {
         int t = arr[i];
         arr[i] = arr[i + step];
         arr[i + step] = t;
+
         is_swapped = true;
       }
     }
+
     if (step > 1) {
       step /= factor;
     }
