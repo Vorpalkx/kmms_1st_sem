@@ -95,9 +95,10 @@ void biv::shaker_sort_opt(int* arr, const int size) {
         temp = i + 1;
       }
     }
-    end = temp;
 
     if (!is_swapped) break;
+
+    end = temp;
 
     is_swapped = false;
     for (int i = end; i > begin; i--) {
