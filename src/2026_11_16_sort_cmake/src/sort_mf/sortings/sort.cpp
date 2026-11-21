@@ -158,7 +158,7 @@ void biv::selection_sort(int* arr, const int size) {
     int min = i;
     for (int j = i + 1; j < size; j++) {
       if (arr[j] < arr[min]) {
-        min = j
+        min = j;
       }
     }
     if (min != i) {

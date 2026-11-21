@@ -1,4 +1,3 @@
-#!usr/bin/env bash
 set -e
 
 BUILD_TYPE="Ninja"
@@ -13,4 +12,4 @@ cd $BUILD_FOLDER
 cmake -G $BUILD_TYPE ../$SOURCE_FOLDER
 cmake --build .
 
-cd ,,
+cd ..
