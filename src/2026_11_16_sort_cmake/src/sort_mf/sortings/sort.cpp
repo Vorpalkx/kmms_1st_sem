@@ -33,6 +33,7 @@ void biv::bubble_sort_early_exit_opt(int* arr, const int size) {
   bool is_swapped;
   int end = size - 1;
   do {
+    int temp = 0;
     is_swapped = false;
     for (int j = 0; j < end; j++) {
       if (arr[j] > arr[j + 1]) {
@@ -40,9 +41,10 @@ void biv::bubble_sort_early_exit_opt(int* arr, const int size) {
         arr[j] = arr[j + 1];
         arr[j + 1] = t;
         is_swapped = true;
-        end = j + 1;
+        temp = j + 1;
       }
     }
+    end = temp;
   } while (is_swapped);
 }
 
