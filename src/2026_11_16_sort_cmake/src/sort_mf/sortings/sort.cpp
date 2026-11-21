@@ -85,15 +85,17 @@ void biv::shaker_sort_opt(int* arr, const int size) {
 
   while (is_swapped) {
     is_swapped = false;
+    int temp;
     for (int i = begin; i < end; i++) {
       if (arr[i] > arr[i + 1]) {
         int t = arr[i];
         arr[i] = arr[i + 1];
         arr[i + 1] = t;
         is_swapped = true;
-        end = i + 1;
+        temp = i + 1;
       }
     }
+    end = temp;
 
     if (!is_swapped) break;
 
@@ -104,9 +106,10 @@ void biv::shaker_sort_opt(int* arr, const int size) {
         arr[i] = arr[i - 1];
         arr[i -1] = t;
         is_swapped = true;
-        begin = i - 1;
+        temp = i - 1;
       }
     }
+    begin = temp;
   }
 }
 
