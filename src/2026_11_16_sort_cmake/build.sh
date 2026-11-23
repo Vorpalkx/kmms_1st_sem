@@ -13,3 +13,4 @@ cmake -G $BUILD_TYPE ../$SOURCE_FOLDER
 cmake --build .
 
 cd ..
+./run_tests.sh
