@@ -148,7 +148,6 @@ void biv::comb_sort(int* arr, const int size) {
   bool is_swapped = true;
 
   while (step > 1 || is_swapped) {
-    step /= factor;
     is_swapped = false;
     for (int i = 0; i + step < size; i++) {
       if (arr[i] > arr[i + step]) {
@@ -162,6 +161,7 @@ void biv::comb_sort(int* arr, const int size) {
 
     if (step > 1) {
       step /= factor;
+      is_swapped = true;
     }
   }
 }
