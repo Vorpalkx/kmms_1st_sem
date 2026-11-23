@@ -201,7 +201,7 @@ void biv::insert_sort_opt(int* arr, const int size) {
     int begin = 0;
     int end = i - 1;
     while (begin < end) {
-      int mid = (begin + end) / 2;
+      int mid = begin + (end - begin) / 2;
       if (x < arr[mid]) {
         end = mid;
       } else {
