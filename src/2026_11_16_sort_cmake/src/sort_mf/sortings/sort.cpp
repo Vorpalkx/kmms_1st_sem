@@ -1,12 +1,13 @@
 #include "sort.hpp"
 
+#include <algorithm>
+#include <utility>
+
 void biv::bubble_sort_classic(int* arr, const int size) {
   for (int i = 0; i < size - 1; i++) {
     for (int j = 0; j < size - i - 1; j++) {
       if (arr[j] > arr[j + 1]) {
-        int t = arr[j];
-        arr[j] = arr[j + 1];
-        arr[j + 1] = t;
+        std::swap(arr[j], arr[j + 1]);
       }
     }
   }
@@ -19,9 +20,7 @@ void biv::bubble_sort_early_exit(int* arr, const int size) {
     is_swapped = false;
     for (int j = 0; j < size - i - 1; j++) {
       if (arr[j] > arr[j + 1]) {
-        int t = arr[j];
-        arr[j] = arr[j + 1];
-        arr[j + 1] = t;
+        std::swap(arr[j], arr[j + 1]);
         is_swapped = true;
       }
     }
@@ -37,9 +36,7 @@ void biv::bubble_sort_early_exit_opt(int* arr, const int size) {
     is_swapped = false;
     for (int j = 0; j < end; j++) {
       if (arr[j] > arr[j + 1]) {
-        int t = arr[j];
-        arr[j] = arr[j + 1];
-        arr[j + 1] = t;
+        std::swap(arr[j], arr[j + 1]);
         is_swapped = true;
         temp = j + 1;
       }
@@ -57,9 +54,7 @@ void biv::shaker_sort(int* arr, const int size) {
     is_swapped = false;
     for (int i = begin; i < end; i++) {
       if (arr[i] > arr[i + 1]) {
-        int t = arr[i];
-        arr[i] = arr[i + 1];
-        arr[i + 1] = t;
+        std::swap(arr[i], arr[i + 1]);
         is_swapped = true;
       }
     }
@@ -70,9 +65,7 @@ void biv::shaker_sort(int* arr, const int size) {
     is_swapped = false;
     for (int i = end; i > begin; i--) {
       if (arr[i] < arr[i - 1]) {
-        int t = arr[i];
-        arr[i] = arr[i - 1];
-        arr[i -1] = t;
+        std::swap(arr[i], arr[i - 1]);
         is_swapped = true;
       }
     }
@@ -90,9 +83,7 @@ void biv::shaker_sort_opt(int* arr, const int size) {
     int temp;
     for (int i = begin; i < end; i++) {
       if (arr[i] > arr[i + 1]) {
-        int t = arr[i];
-        arr[i] = arr[i + 1];
-        arr[i + 1] = t;
+        std::swap(arr[i], arr[i + 1]);
         is_swapped = true;
         temp = i + 1;
       }
@@ -105,9 +96,7 @@ void biv::shaker_sort_opt(int* arr, const int size) {
     is_swapped = false;
     for (int i = end; i > begin; i--) {
       if (arr[i] < arr[i - 1]) {
-        int t = arr[i];
-        arr[i] = arr[i - 1];
-        arr[i -1] = t;
+        std::swap(arr[i], arr[i - 1]);
         is_swapped = true;
         temp = i - 1;
       }
@@ -122,17 +111,13 @@ void biv::odd_even_sort(int* arr, const int size) {
     is_swapped = false;
     for (int j = 0; j < size - 1; j += 2) {
       if (arr[j] > arr[j + 1]) {
-        int t = arr[j];
-        arr[j] = arr[j + 1];
-        arr[j + 1] = t;
+        std::swap(arr[j], arr[j + 1]);
         is_swapped = true;
       }
     }
     for (int j = 1; j < size - 1; j += 2) {
       if (arr[j] > arr[j + 1]) {
-        int t = arr[j];
-        arr[j] = arr[j + 1];
-        arr[j + 1] = t;
+        std::swap(arr[j], arr[j + 1]);
         is_swapped = true;
       }
     }
@@ -151,10 +136,7 @@ void biv::comb_sort(int* arr, const int size) {
     is_swapped = false;
     for (int i = 0; i + step < size; i++) {
       if (arr[i] > arr[i + step]) {
-        int t = arr[i];
-        arr[i] = arr[i + step];
-        arr[i + step] = t;
-
+        std::swap(arr[i], arr[i + step]);
         is_swapped = true;
       }
     }
@@ -231,4 +213,30 @@ void biv::shell_sort(int* arr, const int size) {
     }
     step /= 2;
   }
+}
+
+namespace {
+  void quick_sort_range(int* arr, int begin, int end) {
+    if (begin >= end) return;
+
+    int mid = (begin + end) / 2;
+    int pivot = arr[begin] + arr[mid] + arr[end] -
+      std::min({arr[begin], arr[mid], arr[end]}) -
+      std::max({arr[begin], arr[mid], arr[end]});
+
+    int i = begin, j = end;
+    while(i <= j) {
+      while (arr[i] < pivot) i++;
+      while (arr[j] > pivot) j--;
+      if (i <= j) std::swap(arr[i++], arr[j--]);
+    }
+
+  quick_sort_range(arr, begin, j);
+  quick_sort_range(arr, i, end);
+  }
+}
+
+void biv::quick_sort(int* arr, const int size) {
+  if (size < 2) return;
+  quick_sort_range(arr, 0, size - 1);
 }

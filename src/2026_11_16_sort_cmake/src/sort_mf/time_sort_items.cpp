@@ -44,3 +44,7 @@ const STram::SortInfo STram::INSERT_SORT_OPT = {
 const STram::SortInfo STram::SHELL_SORT = {
   "shell_sort", biv::shell_sort
 };
+
+const STram::SortInfo STram::QUICK_SORT = {
+  "quick_sort", biv::quick_sort
+};
