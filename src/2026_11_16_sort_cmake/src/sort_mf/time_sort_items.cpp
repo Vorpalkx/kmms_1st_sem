@@ -48,3 +48,7 @@ const STram::SortInfo STram::SHELL_SORT = {
 const STram::SortInfo STram::QUICK_SORT = {
   "quick_sort", biv::quick_sort
 };
+
+const STram::SortInfo STram::MERGE_SORT = {
+  "merge_sort", biv::merge_sort
+};

@@ -1,6 +1,7 @@
 #include "sort.hpp"
 
 #include <algorithm>
+#include <memory>
 #include <utility>
 
 void biv::bubble_sort_classic(int* arr, const int size) {
@@ -239,4 +240,61 @@ namespace {
 void biv::quick_sort(int* arr, const int size) {
   if (size < 2) return;
   quick_sort_range(arr, 0, size - 1);
+}
+
+namespace {
+  void merge_ranges(
+      int* arr,
+      int* buffer,
+      const int begin,
+      const int mid,
+      const int end
+  ) {
+    int i = begin;
+    int j = mid + 1;
+    int k = begin;
+
+    while (i <= mid && j <= end) {
+      if (arr[i] < arr[j]) {
+        buffer[k++] = arr[i++];
+      } else {
+        buffer[k++] = arr[j++];
+      }
+    }
+
+    while (i <= mid) {
+      buffer[k++] = arr[i++];
+    }
+    while (j <= end) {
+      buffer[k++] = arr[j++];
+    }
+
+    for (int index = begin; index <= end; ++index) {
+      arr[index] = buffer[index];
+    }
+  }
+
+  void merge_sort_range(
+      int* arr,
+      int* buffer,
+      const int begin,
+      const int end
+  ) {
+    if (begin >= end) return;
+
+    const int mid = begin + (end - begin) / 2;
+
+    merge_sort_range(arr, buffer, begin, mid);
+    merge_sort_range(arr, buffer, mid + 1, end);
+
+    merge_ranges(arr, buffer, begin, mid, end);
+  }
+}
+
+void biv::merge_sort(int* arr, const int size) {
+  if (size < 2) return;
+
+  int* buffer = new int [size];
+  merge_sort_range(arr, buffer, 0, size - 1);
+  delete[] buffer;
 }
