@@ -11,6 +11,7 @@ set(SORT_TESTS
     insert_sort_opt
     shell_sort
     quick_sort
+    merge_sort
 )
 
 foreach(SORT_NAME ${SORT_TESTS})
