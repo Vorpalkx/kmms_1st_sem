@@ -94,6 +94,11 @@ int main() {
   STram::time_sort(&STram::MERGE_SORT, array1, SIZE1, report);
   STram::time_sort(&STram::MERGE_SORT, array2, SIZE2, report);
 
+  report << "\n---\n\n";
+
+  STram::time_sort(&STram::HEAP_SORT, array1, SIZE1, report);
+  STram::time_sort(&STram::HEAP_SORT, array2, SIZE2, report);
+
   return 0;
 }
 

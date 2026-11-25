@@ -52,3 +52,7 @@ const STram::SortInfo STram::QUICK_SORT = {
 const STram::SortInfo STram::MERGE_SORT = {
   "merge_sort", biv::merge_sort
 };
+
+const STram::SortInfo STram::HEAP_SORT = {
+  "heap_sort", biv::heap_sort
+};

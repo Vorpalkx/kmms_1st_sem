@@ -1,7 +1,6 @@
 #include "sort.hpp"
 
 #include <algorithm>
-#include <memory>
 #include <utility>
 
 void biv::bubble_sort_classic(int* arr, const int size) {
@@ -297,4 +296,36 @@ void biv::merge_sort(int* arr, const int size) {
   int* buffer = new int [size];
   merge_sort_range(arr, buffer, 0, size - 1);
   delete[] buffer;
+}
+
+namespace {
+  void heapify(int* arr, const int size, const int current_root) {
+    int max = current_root;
+    int left = 2 * current_root + 1;
+    int right = 2 * current_root + 2;
+
+    if (left < size && arr[left] > arr[max]) {
+      max = left;
+    }
+
+    if (right < size && arr[right] > arr[max]) {
+      max = right;
+    }
+
+    if (max != current_root) {
+      std::swap(arr[current_root], arr[max]);
+      heapify(arr, size, max);
+    }
+  }
+}
+
+void biv::heap_sort(int* arr, const int size) {
+  for (int i = size / 2 - 1; i >= 0; i--) {
+    heapify(arr, size, i);
+  }
+
+  for (int i = size - 1; i >= 0; i--) {
+    std::swap(arr[0], arr[i]);
+    heapify(arr, i, 0);
+  }
 }

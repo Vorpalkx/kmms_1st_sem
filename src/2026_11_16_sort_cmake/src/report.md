@@ -1,63 +1,68 @@
 ## Отчет
-bubble_sort_classic 10000 = 0.146837s
-bubble_sort_classic 100000 = 22.9134s
+bubble_sort_classic 10000 = 0.15748s
+bubble_sort_classic 100000 = 24.6418s
 
 ---
 
-bubble_sort_early_exit 10000 = 0.152407s
-bubble_sort_early_exit 100000 = 23.8649s
+bubble_sort_early_exit 10000 = 0.160835s
+bubble_sort_early_exit 100000 = 25.1644s
 
 ---
 
-bubble_sort_early_exit_opt 10000 = 0.157178s
-bubble_sort_early_exit_opt 100000 = 23.5834s
+bubble_sort_early_exit_opt 10000 = 0.204791s
+bubble_sort_early_exit_opt 100000 = 25.7662s
 
 ---
 
-shaker_sort 10000 = 0.136917s
-shaker_sort 100000 = 17.2126s
+shaker_sort 10000 = 0.142047s
+shaker_sort 100000 = 18.3309s
 
 ---
 
-shaker_sort_opt 10000 = 0.121407s
-shaker_sort_opt 100000 = 17.5281s
+shaker_sort_opt 10000 = 0.131473s
+shaker_sort_opt 100000 = 18.9161s
 
 ---
 
-odd_even_sort 10000 = 0.132313s
-odd_even_sort 100000 = 17.2944s
+odd_even_sort 10000 = 0.132731s
+odd_even_sort 100000 = 17.5629s
 
 ---
 
-comb_sort 10000 = 0.00115007s
-comb_sort 100000 = 0.0168534s
+comb_sort 10000 = 0.00118197s
+comb_sort 100000 = 0.0173s
 
 ---
 
-selection_sort 10000 = 0.0438098s
-selection_sort 100000 = 4.34435s
+selection_sort 10000 = 0.0439295s
+selection_sort 100000 = 4.48124s
 
 ---
 
-insert_sort 10000 = 0.0344907s
-insert_sort 100000 = 3.32311s
+insert_sort 10000 = 0.035752s
+insert_sort 100000 = 3.35058s
 
 ---
 
-insert_sort_opt 10000 = 0.0222857s
-insert_sort_opt 100000 = 2.18497s
+insert_sort_opt 10000 = 0.0243671s
+insert_sort_opt 100000 = 2.35826s
 
 ---
 
-shell_sort 10000 = 0.0015994s
-shell_sort 100000 = 0.0225058s
+shell_sort 10000 = 0.00138995s
+shell_sort 100000 = 0.0234126s
 
 ---
 
-quick_sort 10000 = 0.00132364s
-quick_sort 100000 = 0.0145069s
+quick_sort 10000 = 0.00135536s
+quick_sort 100000 = 0.0140867s
 
 ---
 
-merge_sort 10000 = 0.00125856s
-merge_sort 100000 = 0.0135897s
+merge_sort 10000 = 0.00118201s
+merge_sort 100000 = 0.013845s
+
+---
+
+heap_sort 10000 = 0.00204982s
+heap_sort 100000 = 0.0258972s

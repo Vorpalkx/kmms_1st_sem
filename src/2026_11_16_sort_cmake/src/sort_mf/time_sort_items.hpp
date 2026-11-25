@@ -16,4 +16,5 @@ namespace STram {
   extern const SortInfo SHELL_SORT;
   extern const SortInfo QUICK_SORT;
   extern const SortInfo MERGE_SORT;
+  extern const SortInfo HEAP_SORT;
 }
